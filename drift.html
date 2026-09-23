@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Drift Analysis — SpillTrace</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='3' fill='%235B8CFF'/%3E%3Cpath d='M2.5 12c0-2 4.2-3.6 9.5-3.6s9.5 1.6 9.5 3.6' stroke='%23F5F5F2' fill='none' stroke-width='1.5'/%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/variables.css"/>
+<link rel="stylesheet" href="css/global.css"/>
+<link rel="stylesheet" href="css/layout.css"/>
+<link rel="stylesheet" href="css/components.css"/>
+<link rel="stylesheet" href="css/animations.css"/>
+<link rel="stylesheet" href="css/responsive.css"/>
+<style>
+  .drift-vis{position:relative;border:1px solid var(--border-0);border-radius:var(--r-md);overflow:hidden;background:#050B14;min-height:440px}
+  .drift-vis svg{position:absolute;inset:0;width:100%;height:100%}
+</style>
+</head>
+<body data-page="drift">
+<main class="main"><div class="content">
+
+  <div data-subnav></div>
+
+  <div id="ctxContent">
+    <div class="page-head">
+      <span class="eyebrow">M8 / Backward simulation</span>
+      <h1 class="h-page">Backward Drift Analysis</h1>
+      <p class="lead" style="margin-top:10px">From the observed slick, 500 particles are walked backward through wind and current forcing to reconstruct where the release could have occurred.</p>
+    </div>
+
+    <div class="metrics" style="grid-template-columns:repeat(4,1fr);margin-bottom:22px" data-reveal>
+      <div class="metric"><div class="v num">12 h</div><div class="l">Duration</div></div>
+      <div class="metric"><div class="v num">500</div><div class="l">Particles</div></div>
+      <div class="metric"><div class="v num">1 h</div><div class="l">Timestep</div></div>
+      <div class="metric blue"><div class="v">Acceptable</div><div class="l">Quality</div></div>
+    </div>
+
+    <div class="grid-2" style="grid-template-columns:1.55fr 1fr;gap:22px;align-items:start">
+      <div class="drift-vis" data-reveal>
+        <img class="geo-satellite-image" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/The_oil_spill_in_the_Gulf_of_Mexico_pictured_by_Envisat.jpg" alt="Satellite observation of an ocean oil spill">
+        <svg viewBox="0 0 900 460" preserveAspectRatio="xMidYMid slice">
+          <g opacity=".5"><path d="M0 115H900M0 230H900M0 345H900M150 0V460M300 0V460M450 0V460M600 0V460M750 0V460" stroke="rgba(245,245,242,.05)"/></g>
+          <!-- spill polygon (right) -->
+          <path d="M690,180 C720,164 762,170 782,192 C804,214 800,244 777,262 C754,280 714,276 694,260 C672,242 670,198 690,180 Z" fill="rgba(91,140,255,.16)" stroke="#5B8CFF" stroke-width="1.4"/>
+          <text x="688" y="150" fill="#5B8CFF" font-size="10" font-family="monospace" letter-spacing="2">SPILL POLYGON · T0</text>
+          <!-- corridor (left) -->
+          <polygon points="150,240 300,208 370,252 330,312 190,318 130,282" fill="rgba(232,125,62,.07)" stroke="#E87D3E" stroke-dasharray="5 5" stroke-opacity=".8"/>
+          <text x="150" y="345" fill="#E87D3E" opacity=".85" font-size="10" font-family="monospace" letter-spacing="2">PROBABLE SOURCE CORRIDOR · 21.36 KM²</text>
+          <!-- drift paths -->
+          <path d="M700,220 C600,230 500,240 380,260" fill="none" stroke="rgba(91,140,255,.4)" stroke-dasharray="3 6" class="flow-anim"/>
+          <path d="M710,245 C610,265 520,275 400,290" fill="none" stroke="rgba(91,140,255,.28)" stroke-dasharray="3 6" class="flow-anim"/>
+          <path d="M695,200 C600,205 510,220 390,235" fill="none" stroke="rgba(91,140,255,.28)" stroke-dasharray="3 6" class="flow-anim"/>
+          <g id="driftParticles"></g>
+          <g font-family="monospace" font-size="10" fill="rgba(245,245,242,.4)" letter-spacing="2">
+            <text x="452" y="120">PARTICLE CLOUD · BACKWARD 12 H</text>
+            <text x="470" y="400">← DRIFT DIRECTION</text>
+          </g>
+        </svg>
+        <div class="score-tip" id="driftTip"></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="card card-pad" data-reveal>
+          <div class="meta" style="margin-bottom:14px">Run configuration</div>
+          <div class="specs">
+            <div class="spec"><span class="k">Model</span><span class="v">OpenOil</span></div>
+            <div class="spec"><span class="k">Version</span><span class="v">1.14.10</span></div>
+            <div class="spec"><span class="k">Boundary exit</span><span class="v">0%</span></div>
+            <div class="spec"><span class="k">Source corridor</span><span class="v">21.36 km²</span></div>
+            <div class="spec"><span class="k">Quality</span><span class="v" style="color:var(--ok)">Acceptable</span></div>
+          </div>
+        </div>
+        <div class="acc" data-reveal>
+          <div class="acc-item">
+            <button class="acc-head">Technical Context <svg class="ic" viewBox="0 0 24 24"><path d="m6 9.5 6 6 6-6"/></svg></button>
+            <div class="acc-body"><div class="inner">
+              <div class="specs">
+                <div class="spec"><span class="k">Forcing dataset</span><span class="v">ERA5 + HYCOM</span></div>
+                <div class="spec"><span class="k">Wind variables</span><span class="v">10 m U/V · 0.25° / 1 h</span></div>
+                <div class="spec"><span class="k">Current variables</span><span class="v">0–50 m · 0.08° / 3 h</span></div>
+                <div class="spec"><span class="k">Spatial coverage</span><span class="v">24.5°–28.0° N, -94.0°–-88.5° W</span></div>
+                <div class="spec"><span class="k">Temporal coverage</span><span class="v">2026-08-25 20:00 → 08:00 UTC</span></div>
+                <div class="spec"><span class="k">Buffer distance</span><span class="v">350 m</span></div>
+                <div class="spec"><span class="k">Projected CRS</span><span class="v">EPSG:32615</span></div>
+              </div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div></main>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/router.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/map-mock.js"></script>
+<script src="js/interactions.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

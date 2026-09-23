@@ -1,0 +1,82 @@
+/* OILTRACE — app shell: top navigation only */
+.shell{min-height:100vh}
+
+/* ---------- top nav ---------- */
+.topnav{
+  position:fixed;top:0;left:0;right:0;z-index:var(--z-top);height:var(--nav-h);
+  display:flex;align-items:center;gap:26px;padding:0 clamp(20px,3vw,48px);
+  background:rgba(251,251,250,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border-0);color:var(--text-1);
+  transition:background .35s var(--ease),border-color .35s var(--ease),color .35s var(--ease);
+}
+body.presentation .topnav{display:none}
+body.focus-mode .topnav{display:none}
+.nav-logo{display:flex;align-items:center;gap:11px;font:600 14px/1 var(--font-sans);letter-spacing:.24em;color:inherit}
+.nav-logo .logo-mark{width:22px;height:22px}
+.nav-links{display:flex;align-items:center;gap:26px;margin-left:14px}
+.navlink{position:relative;font:500 11px/1 var(--font-sans);letter-spacing:.18em;text-transform:uppercase;color:var(--text-2);padding:8px 2px;transition:color .2s}
+.navlink:hover{color:var(--text-1)}
+.navlink.on{color:var(--text-1)}
+.navlink.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--blue)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.nav-right .pulse{color:var(--text-3)}
+.navmenu-btn{display:none}
+
+/* nav controls */
+.tb-btn{position:relative;width:38px;height:38px;border-radius:9px;display:grid;place-items:center;color:var(--text-2);transition:background .2s,color .2s}
+.tb-btn:hover{background:rgba(10,14,18,.06);color:var(--text-1)}
+.tb-btn .ndot{position:absolute;top:9px;right:9px;width:6px;height:6px;border-radius:50%;background:var(--orange-bright);border:2px solid var(--bg-0)}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--bg-2);border:1px solid var(--border-1);display:grid;place-items:center;font:600 12px/1 var(--font-sans);color:var(--text-2);flex:none}
+
+/* quick switcher */
+.qswitch{position:relative}
+.qswitch-btn{display:flex;align-items:center;gap:9px;height:36px;padding:0 13px;border:1px solid var(--border-1);border-radius:9px;font:500 11px/1 var(--font-mono);letter-spacing:.08em;color:var(--text-2);transition:all .2s;background:var(--surface-1)}
+.qswitch-btn:hover{color:var(--text-1);border-color:var(--text-3)}
+.qswitch-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:290px;background:var(--surface-1);border:1px solid var(--border-1);border-radius:var(--r-md);box-shadow:var(--shadow-2);padding:6px;opacity:0;transform:translateY(-6px);pointer-events:none;transition:all .25s var(--ease);z-index:70}
+.qswitch.open .qswitch-menu{opacity:1;transform:none;pointer-events:auto}
+.qs-item{display:flex;align-items:center;gap:10px;width:100%;padding:11px 12px;border-radius:9px;text-align:left;transition:background .15s}
+.qs-item:hover{background:rgba(10,14,18,.05)}
+.qs-item .t{font:500 13px/1.3 var(--font-sans);color:var(--text-1)}
+.qs-item .s{font:500 10px/1.4 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+.qs-item .ic{color:var(--blue)}
+
+/* dropdown generic */
+.dd{position:relative}
+.dd-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:300px;background:var(--surface-1);border:1px solid var(--border-1);border-radius:var(--r-md);box-shadow:var(--shadow-2);padding:8px;opacity:0;transform:translateY(-6px);pointer-events:none;transition:all .25s var(--ease);z-index:70}
+.dd.open .dd-menu{opacity:1;transform:none;pointer-events:auto}
+.dd-head{font:500 10px/1 var(--font-mono);letter-spacing:.18em;color:var(--text-3);padding:10px 12px 8px;text-transform:uppercase}
+.dd-item{display:flex;gap:11px;padding:11px 12px;border-radius:9px;transition:background .15s;align-items:flex-start}
+.dd-item:hover{background:rgba(10,14,18,.05)}
+.dd-item .t{font:500 12.5px/1.45 var(--font-sans);color:var(--text-1)}
+.dd-item .s{font:400 11px/1.5 var(--font-sans);color:var(--text-3)}
+.popover{position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--surface-1);border:1px solid var(--border-1);border-radius:var(--r-md);box-shadow:var(--shadow-2);padding:18px;opacity:0;transform:translateY(-6px);pointer-events:none;transition:all .25s var(--ease);z-index:75}
+.dd.open .popover{opacity:1;transform:none;pointer-events:auto}
+
+/* ---------- main ---------- */
+.main{padding-top:var(--nav-h);min-height:100vh;display:flex;flex-direction:column}
+body.presentation .main{padding-top:0}
+body.presentation .content{max-width:1720px;padding-top:56px}
+.content{flex:1;padding:44px clamp(20px,3.4vw,52px) 110px;width:100%;max-width:1600px;margin:0 auto}
+.page-head{margin-bottom:38px}
+.page-head .h-page{margin:14px 0 10px}
+
+/* investigation subnav */
+.subnav{display:flex;align-items:center;gap:4px;border-bottom:1px solid var(--border-0);margin:0 0 36px;overflow-x:auto;scrollbar-width:none}
+.subnav::-webkit-scrollbar{display:none}
+.subnav a{position:relative;flex:none;padding:12px 14px;font:500 12.5px/1 var(--font-sans);letter-spacing:.02em;color:var(--text-3);transition:color .2s}
+.subnav a:hover{color:var(--text-1)}
+.subnav a.on{color:var(--text-1)}
+.subnav a.on::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:2px;background:var(--blue);border-radius:2px}
+
+/* grids */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+
+/* empty state */
+.empty{
+  position:relative;border:1px solid var(--border-0);border-radius:var(--r-lg);overflow:hidden;
+  padding:70px 40px;text-align:center;background:var(--bg-1);
+}
+.empty .bgimg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.2;filter:saturate(.8)}
+.empty .inner{position:relative}

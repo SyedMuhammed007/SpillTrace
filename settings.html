@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Settings — SpillTrace</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='3' fill='%235B8CFF'/%3E%3Cpath d='M2.5 12c0-2 4.2-3.6 9.5-3.6s9.5 1.6 9.5 3.6' stroke='%23F5F5F2' fill='none' stroke-width='1.5'/%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/variables.css"/>
+<link rel="stylesheet" href="css/global.css"/>
+<link rel="stylesheet" href="css/layout.css"/>
+<link rel="stylesheet" href="css/components.css"/>
+<link rel="stylesheet" href="css/animations.css"/>
+<link rel="stylesheet" href="css/responsive.css"/>
+</head>
+<body data-page="settings">
+<main class="main"><div class="content" style="max-width:980px">
+
+  <div class="page-head">
+    <span class="eyebrow">System</span>
+    <h1 class="h-page" style="margin-top:14px">Settings</h1>
+  </div>
+
+  <div class="card card-pad" style="margin-bottom:22px" data-reveal>
+    <div class="meta" style="margin-bottom:10px">Profile</div>
+    <div class="set-row" style="border-top:none"><div><div class="t">TrueVox</div><div class="s">Investigator · investigator@spilltrace.ai</div></div><span class="avatar" style="width:44px;height:44px">TV</span></div>
+    <div class="set-row"><div><div class="t">Role</div><div class="s">Case owner · evidence signer</div></div><span class="pill pill-ok"><i class="dot"></i>Active</span></div>
+  </div>
+
+  <div class="card card-pad" style="margin-bottom:22px" data-reveal>
+    <div class="meta" style="margin-bottom:10px">Map Settings</div>
+    <div class="set-row" style="border-top:none">
+      <div><div class="t">Default map layer</div><div class="s">Applied when opening Map &amp; Analysis.</div></div>
+      <select class="input" style="width:auto;height:40px"><option>Spill Polygon</option><option>SAR Footprint</option><option>Source Corridor</option><option>Drift Density</option><option>Candidate Tracks</option></select>
+    </div>
+    <div class="set-row"><div><div class="t">Drift particles</div><div class="s">Animate the backward particle cloud.</div></div><button class="switch on" data-name="Drift particles"></button></div>
+    <div class="set-row"><div><div class="t">Coordinate readout</div><div class="s">Show live cursor coordinates on the map.</div></div><button class="switch on" data-name="Coordinate readout"></button></div>
+  </div>
+
+  <div class="card card-pad" data-reveal>
+    <div class="meta" style="margin-bottom:10px">Notifications</div>
+    <div class="set-row" style="border-top:none"><div><div class="t">Pipeline completions</div><div class="s">When a module finishes a run.</div></div><button class="switch on" data-name="Pipeline notifications"></button></div>
+    <div class="set-row"><div><div class="t">New SAR scenes</div><div class="s">When a scene enters the analysis window.</div></div><button class="switch on" data-name="Scene notifications"></button></div>
+    <div class="set-row"><div><div class="t">Attribution changes</div><div class="s">When the top candidate or score changes.</div></div><button class="switch" data-name="Attribution notifications"></button></div>
+  </div>
+
+</div></main>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/router.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/map-mock.js"></script>
+<script src="js/interactions.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Investigation Overview — SpillTrace</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='3' fill='%235B8CFF'/%3E%3Cpath d='M2.5 12c0-2 4.2-3.6 9.5-3.6s9.5 1.6 9.5 3.6' stroke='%23F5F5F2' fill='none' stroke-width='1.5'/%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/variables.css"/>
+<link rel="stylesheet" href="css/global.css"/>
+<link rel="stylesheet" href="css/layout.css"/>
+<link rel="stylesheet" href="css/components.css"/>
+<link rel="stylesheet" href="css/animations.css"/>
+<link rel="stylesheet" href="css/responsive.css"/>
+<style>
+  .ov-hero{position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border-0);padding:clamp(36px,4.5vw,64px);isolation:isolate;margin-bottom:36px}
+  .ov-hero .bg{position:absolute;inset:0;z-index:-2;background:url('assets/images/coastline.png') center 38%/cover;filter:saturate(.85)}
+  .ov-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(5,5,5,.92) 20%,rgba(5,5,5,.62) 60%,rgba(5,5,5,.35))}
+  .ov-hero .h-page{max-width:16ch}
+</style>
+</head>
+<body data-page="investigation">
+<main class="main"><div class="content">
+
+  <div data-subnav></div>
+
+  <div class="ov-hero" style="background: url('assets/images/tanker-sunset.webp') center/cover no-repeat;">
+    <div class="meta" style="color:rgba(245,245,242,.6)">INVESTIGATION / <span id="ovId">INV-2026-001</span></div>
+    <h1 class="h-page" style="margin:16px 0 20px;color: aliceblue;" id="ovTitle">Gulf of Mexico<br/>Oil Spill Investigation</h1>
+    <div class="row" style="flex-wrap:wrap;gap:12px" id="ovMeta">
+      <span class="pill pill-ok"><i class="dot"></i>Completed</span>
+      <span class="meta" style="color:rgba(245,245,242,.6)">Created 26 Aug 2026</span>
+      <span class="meta" style="color:rgba(245,245,242,.6)">Last updated 26 Aug 2026</span>
+    </div>
+    <div class="row" style="margin-top:30px;flex-wrap:wrap">
+      <button class="btn btn-light" id="rerunBtn"><svg class="ic" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 3v6h-6"/></svg> Re-run Analysis</button>
+      <button class="btn btn-ghost" id="genPackBtn"><svg class="ic" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg> Generate Evidence Pack</button>
+    </div>
+  </div>
+
+  <div class="spread" style="margin-bottom:20px" data-reveal>
+    <h2 class="h-title">Pipeline Status</h2>
+    <span class="meta">12 modules · M1–M12</span>
+  </div>
+  <div class="mods" id="modGrid" data-reveal></div>
+
+  <div class="spread" style="margin:44px 0 20px" data-reveal>
+    <h2 class="h-title">Investigation Health</h2>
+    <span class="pill pill-verified"><i class="dot"></i>Verified</span>
+  </div>
+  <div class="health" id="healthGrid" data-reveal></div>
+
+</div></main>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/router.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/map-mock.js"></script>
+<script src="js/interactions.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

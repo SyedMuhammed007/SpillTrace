@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SpillTrace — Satellite-to-Vessel Oil Spill Analysis</title>
+<meta name="description" content="SpillTrace transforms satellite observations, environmental drift analysis and vessel trajectory evidence into a single investigative intelligence workflow."/>
+<link rel="icon" href="assets/images/logo.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/variables.css"/>
+<link rel="stylesheet" href="css/global.css"/>
+<link rel="stylesheet" href="css/layout.css"/>
+<link rel="stylesheet" href="css/components.css"/>
+<link rel="stylesheet" href="css/animations.css"/>
+<link rel="stylesheet" href="css/landing.css"/>
+<link rel="stylesheet" href="css/responsive.css"/>
+</head>
+
+<body data-page="landing" class="landing">
+
+<header class="lnav">
+  <a class="wordmark" style="transform: scale(1.5) translateX(20px);" href="index.html">
+    <img src="assets/images/logo-white.ico" alt="SpillTrace logo" width="24" height="24" style="color: aliceblue;"/>
+    SpillTrace
+  </a>
+
+  <a class="nav-cta" href="login.html">
+    Enter Platform
+    <span>↗</span>
+  </a>
+</header>
+
+<section class="hero-track">
+  <div class="hero-sticky">
+    <div class="hero-fallback"></div>
+
+    <video
+      id="heroVideo"
+      class="hero-video"
+      src="assets/video/landing-bg.mp4"
+      muted
+      playsinline
+      preload="auto"
+      tabindex="-1">
+    </video>
+
+    <div class="hero-overlay"></div>
+    <div class="hero-noise"></div>
+
+    <div class="hero-content wrap">
+      <div class="hero-copy">
+        <span class="hero-kicker">FROM ORBIT TO EVIDENCE</span>
+        <h1>See the spill.<br/>Trace the story.</h1>
+        <p>
+          Satellite observations, drift reconstruction and vessel intelligence
+          brought together in one focused investigative workflow.
+        </p>
+
+        <div class="hero-actions">
+          <a href="login.html" class="hero-primary">
+            Start Investigation
+            <span>→</span>
+          </a>
+
+          <a href="#platform" class="hero-secondary">
+            Explore Intelligence
+            <span>↓</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro-section" id="platform">
+  <div class="wrap intro-grid">
+    <div class="intro-label">
+      <span class="section-index">01</span>
+      <span>INVESTIGATIVE INTELLIGENCE</span>
+    </div>
+
+    <div class="intro-main">
+      <h2>
+        The hardest part is not finding data.
+        <em>It is understanding what the data means together.</em>
+      </h2>
+
+      <div class="intro-copy">
+        <p>
+          SpillTrace turns fragmented geospatial signals into a clear investigative
+          sequence. Satellite scenes, spill detection, environmental drift and
+          vessel movement become connected evidence rather than isolated screens.
+        </p>
+
+        <a href="#services" class="text-link">
+          Discover the workflow
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="statement-band">
+  <div class="wrap">
+    <span class="statement-number">02</span>
+    <div class="statement-content">
+      <span class="eyebrow">ONE PLATFORM. ONE CHAIN OF REASONING.</span>
+      <h2>
+        Not another dashboard full of disconnected maps.
+        <br/>
+        <em>An investigation designed to move forward.</em>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="services-section" id="services">
+  <div class="wrap">
+    <div class="section-header">
+      <div>
+        <span class="section-index">03</span>
+        <span class="eyebrow">CORE CAPABILITIES</span>
+      </div>
+
+      <p>
+        Every capability has a purpose in the investigation.
+        Observe, detect, reconstruct, correlate and explain.
+      </p>
+    </div>
+  </div>
+
+  <article class="service-block">
+    <div class="service-media">
+      <img src="https://engtechnica.com/wp-content/uploads/2025/06/us-coastline-aerial-view-shoreline-map-overlay-1.jpg" alt="Satellite view of ocean monitoring"/>
+      <div class="media-label">SATELLITE OBSERVATION / 01</div>
+    </div>
+
+    <div class="service-copy">
+      <span class="service-index">01</span>
+      <h2>Continuous<br/>spill awareness.</h2>
+      <p>
+        Start with the ocean as it actually appears from above. Bring SAR scenes
+        and observation windows into one investigation and move quickly from
+        raw imagery to a meaningful area of interest.
+      </p>
+
+      <div class="service-meta">
+        <span>SAR SCENES</span>
+        <span>DAY + NIGHT</span>
+        <span>ALL-WEATHER OBSERVATION</span>
+      </div>
+
+      <a href="login.html" class="service-link">
+        Open intelligence platform
+        <span>↗</span>
+      </a>
+    </div>
+  </article>
+
+  <article class="service-block reverse">
+    <div class="service-media">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20photograph%20of%20a%20cargo%20ship.jpg?width=1800" alt="Aerial cargo vessel under observation" data-zoomscroll/>
+      <div class="media-label">SPILL DETECTION / 02</div>
+    </div>
+
+    <div class="service-copy">
+      <span class="service-index">02</span>
+      <h2>Find the signal.<br/>Measure the event.</h2>
+      <p>
+        Detection results are presented as evidence, not decoration. Review
+        confidence, scene information, mask output and spill geometry in a
+        focused interface built for investigation.
+      </p>
+
+      <div class="service-meta">
+        <span>DETECTION MASK</span>
+        <span>CONFIDENCE</span>
+        <span>SPILL GEOMETRY</span>
+      </div>
+
+      <a href="login.html" class="service-link">
+        Explore spill analysis
+        <span>↗</span>
+      </a>
+    </div>
+  </article>
+
+  <article class="service-block">
+    <div class="service-media">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Container%20ship%20on%20water.jpg?width=1800" alt="Container vessel observed from above" data-zoomscroll/>
+      <div class="media-label">DRIFT + CORRELATION / 03</div>
+    </div>
+
+    <div class="service-copy">
+      <span class="service-index">03</span>
+      <h2>Rewind the ocean.<br/>Narrow the search.</h2>
+      <p>
+        Move backward from the detected spill through environmental conditions
+        and probable source corridors. Then compare the resulting space and
+        time window against vessel movement.
+      </p>
+
+      <div class="service-meta">
+        <span>BACKWARD DRIFT</span>
+        <span>SOURCE CORRIDOR</span>
+        <span>AIS CORRELATION</span>
+      </div>
+
+      <a href="login.html" class="service-link">
+        Investigate vessel candidates
+        <span>↗</span>
+      </a>
+    </div>
+  </article>
+</section>
+
+<section class="intelligence-section" id="intelligence">
+  <div class="intelligence-sticky">
+    <div class="wrap intelligence-layout">
+      <div class="intelligence-heading">
+        <span class="section-index">04</span>
+        <span class="eyebrow">GEOSPATIAL INTELLIGENCE</span>
+
+        <h2>
+          The ocean is not
+          <em>static.</em>
+        </h2>
+
+        <p>
+          SpillTrace makes movement visible through layered spatial evidence.
+        </p>
+      </div>
+
+      <div class="map-stage">
+        <img class="geo-satellite-image" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/The_oil_spill_in_the_Gulf_of_Mexico_pictured_by_Envisat.jpg" alt="Satellite observation of an ocean oil spill">
+        <div class="geo-image-overlay"></div>
+        <div class="map-grid"></div>
+
+        <svg class="intelligence-map" viewBox="0 0 1200 720" fill="none">
+          <path class="route route-one" d="M40 590C210 520 300 470 438 420C570 372 670 335 795 238C920 142 1025 150 1160 88"/>
+          <path class="route route-two" d="M-20 170C170 250 345 265 470 350C650 472 780 548 1200 630"/>
+          <path class="route route-three" d="M170 690C250 560 340 500 515 432C655 377 735 302 845 198"/>
+          <path class="spill-shape" d="M620 315C673 285 739 297 769 335C804 379 782 438 727 458C665 480 590 445 578 395C570 360 584 334 620 315Z"/>
+          <path class="source-zone" d="M420 490L610 420L750 474L700 570L490 592L388 545Z"/>
+          <path class="connector" d="M535 505L665 390"/>
+          <circle class="spill-point" cx="665" cy="390" r="10"/>
+          <circle class="source-point" cx="535" cy="505" r="7"/>
+          <circle class="vessel-point" cx="1035" cy="160" r="8"/>
+        </svg>
+
+        <div class="map-panel map-panel-top">
+          <span>ACTIVE RECONSTRUCTION</span>
+          <strong>INV-2026-001</strong>
+        </div>
+
+        <div class="map-panel map-panel-bottom">
+          <div>
+            <span>SPILL AREA</span>
+            <strong>18.6 KM²</strong>
+          </div>
+          <div>
+            <span>TOP CANDIDATE</span>
+            <strong>0.81 SCORE</strong>
+          </div>
+        </div>
+
+        <div class="map-callout spill-callout">
+          <span class="callout-dot"></span>
+          DETECTED SPILL
+        </div>
+
+        <div class="map-callout corridor-callout">
+          <span class="callout-dot"></span>
+          SOURCE CORRIDOR
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="evidence-section">
+  <div class="wrap evidence-header">
+    <div>
+      <span class="section-index">05</span>
+      <span class="eyebrow">EVIDENCE ARCHITECTURE</span>
+    </div>
+
+    <h2>
+      Every conclusion should be able to
+      <em>show its path.</em>
+    </h2>
+  </div>
+
+  <div class="evidence-track">
+    <div class="evidence-node">
+      <span>01</span>
+      <strong>Satellite Scene</strong>
+      <p>Original observation and acquisition metadata.</p>
+    </div>
+
+    <div class="evidence-line"></div>
+
+    <div class="evidence-node">
+      <span>02</span>
+      <strong>Detection Result</strong>
+      <p>Spill mask, confidence and model output.</p>
+    </div>
+
+    <div class="evidence-line"></div>
+
+    <div class="evidence-node">
+      <span>03</span>
+      <strong>Drift Analysis</strong>
+      <p>Environmental reconstruction and source corridor.</p>
+    </div>
+
+    <div class="evidence-line"></div>
+
+    <div class="evidence-node">
+      <span>04</span>
+      <strong>Vessel Evidence</strong>
+      <p>Spatial and temporal candidate compatibility.</p>
+    </div>
+
+    <div class="evidence-line"></div>
+
+    <div class="evidence-node highlight">
+      <span>05</span>
+      <strong>Evidence Pack</strong>
+      <p>Traceable investigative output for review.</p>
+    </div>
+  </div>
+</section>
+
+<section class="investigation-section" id="investigation">
+  <div class="wrap">
+    <div class="investigation-card">
+      <div class="investigation-image">
+        <img src="https://engtechnica.com/wp-content/uploads/2025/06/us-coastline-aerial-view-shoreline-map-overlay-1.jpg" alt="Gulf of Mexico investigation"/>
+        <div class="investigation-overlay"></div>
+      </div>
+
+      <div class="investigation-content">
+        <div class="investigation-top">
+          <span class="status-pill">
+            <i></i>
+            COMPLETED
+          </span>
+          <span>INV-2026-001</span>
+        </div>
+
+        <div class="investigation-copy">
+          <span class="eyebrow">FEATURED INVESTIGATION</span>
+          <h2>Gulf of Mexico<br/>Oil Spill Investigation</h2>
+        </div>
+
+        <div class="investigation-stats">
+          <div>
+            <strong>18.6</strong>
+            <span>KM² SPILL AREA</span>
+          </div>
+
+          <div>
+            <strong>12</strong>
+            <span>VESSEL CANDIDATES</span>
+          </div>
+
+          <div>
+            <strong>0.81</strong>
+            <span>TOP EVIDENCE SCORE</span>
+          </div>
+        </div>
+
+        <a href="investigation.html" class="investigation-button">
+          Open Investigation
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing-section">
+  <div class="wrap closing-inner">
+    <span class="eyebrow">READY TO INVESTIGATE</span>
+    <h2>
+      The ocean leaves traces.
+      <br/>
+      <em>Follow them with evidence.</em>
+    </h2>
+
+    <a href="login.html" class="closing-button">
+      Enter SpillTrace
+      <span>↗</span>
+    </a>
+  </div>
+</section>
+
+<footer class="lfoot">
+  <div class="wrap footer-inner">
+    <a class="footer-brand" href="index.html">
+      <img src="assets/images/logo-white.ico" alt="SpillTrace logo" width="24" height="24"/>
+      SpillTrace
+    </a>
+
+    <span>Satellite-to-Vessel Oil Spill Analysis</span>
+    <span>2026</span>
+
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Documentation</a>
+      <a href="#">System Status</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+const heroVideo = document.getElementById("heroVideo");
+
+heroVideo.addEventListener("loadedmetadata", () => {
+  const heroTrack = document.querySelector(".hero-track");
+
+  ScrollTrigger.create({
+    trigger: heroTrack,
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+    onUpdate: self => {
+      if (heroVideo.duration && Number.isFinite(heroVideo.duration)) {
+        const targetTime = self.progress * Math.max(heroVideo.duration - 0.05, 0);
+        if (Math.abs(heroVideo.currentTime - targetTime) > 0.03) {
+          heroVideo.currentTime = targetTime;
+        }
+      }
+    }
+  });
+});
+
+gsap.set(".hero-copy", {
+  opacity: 0
+});
+
+gsap.timeline({
+  scrollTrigger: {
+    trigger: ".hero-track",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true
+  }
+})
+.to(".hero-copy", {
+  y: -40,
+  opacity: 0.1,
+  scale: 0.98,
+  ease: "none",
+  duration: 0.88
+})
+.to(".hero-copy", {
+  opacity: 1,
+  scale: 1,
+  ease: "none",
+  duration: 0.12
+});
+
+gsap.to(".hero-video", {
+  scale: 1.08,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".hero-track",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true
+  }
+});
+
+gsap.utils.toArray(".service-block").forEach((block, index) => {
+  const media = block.querySelector(".service-media");
+  const copy = block.querySelector(".service-copy");
+
+  gsap.from(media, {
+    y: 80,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: block,
+      start: "top 78%",
+      toggleActions: "play none none reverse"
+    }
+  });
+
+  gsap.from(copy, {
+    y: 60,
+    opacity: 0,
+    duration: 1,
+    delay: 0.12,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: block,
+      start: "top 78%",
+      toggleActions: "play none none reverse"
+    }
+  });
+
+  gsap.to(media.querySelector("img"), {
+    yPercent: index % 2 === 0 ? -8 : 8,
+    ease: "none",
+    scrollTrigger: {
+      trigger: block,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true
+    }
+  });
+});
+
+gsap.from(".statement-content h2", {
+  y: 70,
+  opacity: 0,
+  duration: 1.2,
+  ease: "power4.out",
+  scrollTrigger: {
+    trigger: ".statement-band",
+    start: "top 70%"
+  }
+});
+
+gsap.from(".evidence-node", {
+  y: 50,
+  opacity: 0,
+  stagger: 0.12,
+  duration: 0.8,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: ".evidence-track",
+    start: "top 78%"
+  }
+});
+
+gsap.from(".investigation-card", {
+  y: 80,
+  opacity: 0,
+  scale: 0.98,
+  duration: 1.2,
+  ease: "power4.out",
+  scrollTrigger: {
+    trigger: ".investigation-section",
+    start: "top 75%"
+  }
+});
+
+gsap.from(".closing-inner h2", {
+  y: 70,
+  opacity: 0,
+  duration: 1,
+  ease: "power4.out",
+  scrollTrigger: {
+    trigger: ".closing-section",
+    start: "top 72%"
+  }
+});
+</script>
+
+</body>
+</html>

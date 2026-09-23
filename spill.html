@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Spill Detection — SpillTrace</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='3' fill='%235B8CFF'/%3E%3Cpath d='M2.5 12c0-2 4.2-3.6 9.5-3.6s9.5 1.6 9.5 3.6' stroke='%23F5F5F2' fill='none' stroke-width='1.5'/%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/variables.css"/>
+<link rel="stylesheet" href="css/global.css"/>
+<link rel="stylesheet" href="css/layout.css"/>
+<link rel="stylesheet" href="css/components.css"/>
+<link rel="stylesheet" href="css/animations.css"/>
+<link rel="stylesheet" href="css/responsive.css"/>
+<style>
+  .spill-vis{position:relative;border:1px solid var(--border-0);border-radius:var(--r-md);overflow:hidden;min-height:520px;background:#04101f;isolation:isolate}
+  .spill-vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .spill-vis.sar img{filter:grayscale(1) brightness(.65) contrast(1.25)}
+  .spill-vis.mask{background:#000}
+  .spill-vis svg{position:absolute;inset:0;width:100%;height:100%}
+  .scanline{position:absolute;left:0;right:0;height:2px;background:rgba(91,140,255,.75);box-shadow:0 0 22px rgba(91,140,255,.55);animation:scan 5s linear infinite}
+  @keyframes scan{0%{top:0}100%{top:100%}}
+  .conf-big{font:600 clamp(56px,6vw,88px)/1 var(--font-sans);letter-spacing:-.04em;color:var(--blue);font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body data-page="spill">
+<main class="main"><div class="content">
+
+  <div data-subnav></div>
+
+  <div id="ctxContent">
+    <div class="spread" style="margin-bottom:24px;flex-wrap:wrap;gap:18px">
+      <div>
+        <span class="eyebrow">M4 / Detection Result</span>
+        <h1 class="h-page" style="margin-top:12px">Spill Detection</h1>
+      </div>
+      <div class="tabs">
+        <button class="tab on" data-tab="overview">Overview</button>
+        <button class="tab" data-tab="sar">SAR</button>
+        <button class="tab" data-tab="mask">Mask</button>
+        <button class="tab" data-tab="metadata">Metadata</button>
+      </div>
+    </div>
+
+    <div class="grid-2" style="grid-template-columns:1.55fr 1fr;gap:22px;align-items:start">
+      <div>
+        <div class="tabpane on" id="pane-overview">
+          <div class="spill-vis">
+            <img src="https://engtechnica.com/wp-content/uploads/2025/06/us-coastline-aerial-view-shoreline-map-overlay-1.jpg" alt="Satellite view of ocean monitoring"/>
+            <div class="map-hud tl">DETECTION OVERLAY<br>OilSegNet 1.4.2</div>
+          </div>
+        </div>
+        <div class="tabpane" id="pane-sar">
+          <div class="spill-vis sar">
+            <img src="https://engtechnica.com/wp-content/uploads/2025/06/us-coastline-aerial-view-shoreline-map-overlay-1.jpg" alt="Satellite view of ocean monitoring"/>
+          </div>
+        </div>
+        <div class="tabpane" id="pane-mask">
+          <div class="spill-vis mask">
+            <svg viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice">
+              <path d="M430,210 C470,190 525,198 552,228 C582,258 576,298 545,322 C514,346 460,341 433,319 C403,295 400,232 430,210 Z" fill="#F5F5F2" opacity=".92"/>
+              <path d="M470,240 C490,232 515,236 528,250 C542,264 539,283 524,294 C509,305 484,303 471,293 C457,282 456,252 470,240 Z" fill="#000" opacity=".5"/>
+            </svg>
+            <div class="scanline"></div>
+            <div class="map-hud tl" style="color:rgba(245,245,242,.6)">BINARY MASK · 1 = OIL</div>
+            <div class="map-hud br" style="color:rgba(245,245,242,.6)">IOU 0.87 · F1 0.91</div>
+          </div>
+        </div>
+        <div class="tabpane" id="pane-metadata">
+          <div class="card card-pad">
+            <div class="meta" style="margin-bottom:16px">Canonical detection object · ent-b5190d3e</div>
+            <div class="specs">
+              <div class="spec"><span class="k">Acquisition time</span><span class="v">2026-08-26 08:12 UTC</span></div>
+              <div class="spec"><span class="k">Scene ID</span><span class="v">S1A_IW_GRDH_1SDV</span></div>
+              <div class="spec"><span class="k">CRS</span><span class="v">EPSG:4326</span></div>
+              <div class="spec"><span class="k">Resolution</span><span class="v">10 m</span></div>
+              <div class="spec"><span class="k">Channels</span><span class="v">VV / VH</span></div>
+              <div class="spec"><span class="k">Model</span><span class="v">OilSegNet</span></div>
+              <div class="spec"><span class="k">Model version</span><span class="v">1.4.2</span></div>
+              <div class="spec"><span class="k">Centroid</span><span class="v">26.184° N, -91.245° W</span></div>
+              <div class="spec"><span class="k">Perimeter</span><span class="v">27.4 km</span></div>
+              <div class="spec"><span class="k">Thickness class</span><span class="v">Sheen / emulsion mix</span></div>
+              <div class="spec"><span class="k">Checksum</span><span class="v">sha256:c7d21f5b…02aa</span></div>
+              <div class="spec"><span class="k">Artifact URI</span><span class="v">s3://spilltrace/…/mask.geojson</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card card-pad" data-reveal>
+          <div class="meta" style="margin-bottom:14px">Detection confidence</div>
+          <div class="conf-big num"><span data-count="92">0</span>%</div>
+          <div class="sbar hl in" style="--w:.92;margin-top:18px"><div class="track"><div class="fill" style="transform:scaleX(.92)"></div></div></div>
+          <div class="divider" style="margin:24px 0"></div>
+          <div class="meta" style="margin-bottom:10px">Spill area</div>
+          <div class="v num" style="font:600 34px/1 var(--font-sans);letter-spacing:-.02em">18.6 km²</div>
+          <div class="divider" style="margin:24px 0"></div>
+          <div class="specs">
+            <div class="spec"><span class="k">Acquisition time</span><span class="v">2026-08-26 08:12 UTC</span></div>
+            <div class="spec"><span class="k">Scene ID</span><span class="v">S1A_IW_GRDH_1SDV</span></div>
+            <div class="spec"><span class="k">CRS</span><span class="v">EPSG:4326</span></div>
+            <div class="spec"><span class="k">Resolution</span><span class="v">10 m</span></div>
+            <div class="spec"><span class="k">Channels</span><span class="v">VV / VH</span></div>
+            <div class="spec"><span class="k">Model</span><span class="v">OilSegNet 1.4.2</span></div>
+          </div>
+          <a class="btn btn-blue" href="map.html" style="width:100%;margin-top:24px"><svg class="ic" viewBox="0 0 24 24"><path d="m9 4-6 2v14l6-2 6 2 6-2V4l-6 2Z"/><path d="M9 4v14M15 6v14"/></svg> View on Map</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div></main>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/router.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/map-mock.js"></script>
+<script src="js/interactions.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

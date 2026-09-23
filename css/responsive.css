@@ -1,0 +1,43 @@
+/* OILTRACE — responsive */
+@media (max-width:1280px){
+  .gis{grid-template-columns:1fr 300px}
+  .mods{grid-template-columns:repeat(3,1fr)}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .health{grid-template-columns:repeat(2,1fr)}
+  .nav-links{gap:18px}
+}
+@media (max-width:1080px){
+  .nav-links{display:none}
+  .navmenu-btn{display:grid !important}
+  .gis{grid-template-columns:1fr}
+  .rail{flex-direction:row;flex-wrap:wrap}
+  .rail-card{flex:1;min-width:220px}
+  .grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}
+  .comp-grid{grid-template-columns:1fr}
+  .login-split{grid-template-columns:1fr}
+  .login-visual{min-height:38vh}
+  .cmp-grid{grid-template-columns:1fr}
+  .content{padding:32px 20px 90px}
+  .attr-hero{grid-template-columns:1fr}
+  .dash-grid{grid-template-columns:1fr !important}
+}
+@media (max-width:760px){
+  .h-hero{font-size:clamp(44px,12vw,72px)}
+  .metrics{grid-template-columns:1fr 1fr}
+  .mods{grid-template-columns:1fr 1fr}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .hero-side{display:none}
+  .lnav .links{display:none}
+  .feature .stats{gap:22px}
+  .tabs{width:100%;overflow-x:auto}
+  .topnav{padding:0 14px;gap:12px}
+  .pulse,.qswitch{display:none}
+  /* tables -> cards */
+  .tbl thead{display:none}
+  .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
+  .tbl tbody tr{border:1px solid var(--border-0);border-radius:var(--r-md);margin:12px;padding:8px 0;background:var(--surface-1)}
+  .tbl-wrap .tbl tbody tr{margin:12px}
+  .tbl td{border:none;padding:8px 18px;display:flex;justify-content:space-between;gap:16px}
+  .tbl td::before{content:attr(data-th);font:500 9.5px/1.8 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--text-3)}
+  .row-arrow{display:none}
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Investigations — SpillTrace</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='3' fill='%235B8CFF'/%3E%3Cpath d='M2.5 12c0-2 4.2-3.6 9.5-3.6s9.5 1.6 9.5 3.6' stroke='%23F5F5F2' fill='none' stroke-width='1.5'/%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/variables.css"/>
+<link rel="stylesheet" href="css/global.css"/>
+<link rel="stylesheet" href="css/layout.css"/>
+<link rel="stylesheet" href="css/components.css"/>
+<link rel="stylesheet" href="css/animations.css"/>
+<link rel="stylesheet" href="css/responsive.css"/>
+</head>
+<body data-page="investigations">
+<main class="main"><div class="content">
+
+  <div class="page-head spread" style="align-items:flex-end">
+    <div>
+      <span class="eyebrow">Platform</span>
+      <h1 class="h-page">Investigations</h1>
+    </div>
+    <button class="btn btn-light" onclick="toast('New investigation wizard is outside this prototype','info')"><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> New Investigation</button>
+  </div>
+
+  <div class="row" style="flex-wrap:wrap;gap:14px;margin-bottom:26px" data-reveal>
+    <div style="position:relative;flex:1;min-width:240px;max-width:420px">
+      <input class="input" id="invSearch" placeholder="Search investigations" style="width:100%;padding-left:42px"/>
+      <svg class="ic" viewBox="0 0 24 24" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-3)"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    </div>
+    <div class="row" id="filterChips" style="gap:8px">
+      <button class="chip on" data-filter="all">All</button>
+      <button class="chip" data-filter="running">Running</button>
+      <button class="chip" data-filter="completed">Completed</button>
+      <button class="chip" data-filter="archived">Archived</button>
+    </div>
+    <span style="flex:1"></span>
+    <select class="input" style="width:auto;height:40px" aria-label="Status filter"><option>Status</option><option>Completed</option><option>Running</option><option>Archived</option></select>
+    <select class="input" style="width:auto;height:40px" aria-label="Date filter"><option>Date</option><option>Last 24 h</option><option>Last 7 d</option><option>Last 30 d</option></select>
+    <select class="input" style="width:auto;height:40px" aria-label="Owner filter"><option>Owner</option><option>TrueVox</option><option>Watchfloor</option></select>
+  </div>
+
+  <div class="tbl-wrap" data-reveal>
+    <table class="tbl" id="invTable">
+      <thead><tr><th>Investigation</th><th>Status</th><th>Spill</th><th>Candidates</th><th>Attribution</th><th>Updated</th><th></th></tr></thead>
+      <tbody>
+        <tr data-id="INV-2026-001" data-status="completed" data-title="gulf of mexico oil spill">
+          <td data-th="Investigation"><span class="primary">Gulf of Mexico Oil Spill</span><br><span class="meta-sm">INV-2026-001</span></td>
+          <td data-th="Status"><span class="pill pill-ok"><i class="dot"></i>Completed</span></td>
+          <td data-th="Spill" class="num">18.6 km²</td><td data-th="Candidates" class="num">12</td>
+          <td data-th="Attribution"><span class="pill pill-verified"><i class="dot"></i>Available</span></td>
+          <td data-th="Updated">26 Aug 2026</td>
+          <td><svg class="ic row-arrow" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></td>
+        </tr>
+        <tr data-id="INV-2026-002" data-status="running" data-title="north atlantic case 002">
+          <td data-th="Investigation"><span class="primary">North Atlantic Case 002</span><br><span class="meta-sm">INV-2026-002</span></td>
+          <td data-th="Status"><span class="pill pill-run"><i class="dot"></i>Running</span></td>
+          <td data-th="Spill">—</td><td data-th="Candidates">—</td><td data-th="Attribution">—</td>
+          <td data-th="Updated">26 Aug 2026</td>
+          <td><svg class="ic row-arrow" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></td>
+        </tr>
+        <tr data-id="INV-2026-003" data-status="archived" data-title="arabian sea case 003">
+          <td data-th="Investigation"><span class="primary">Arabian Sea Case 003</span><br><span class="meta-sm">INV-2026-003</span></td>
+          <td data-th="Status"><span class="pill pill-muted"><i class="dot"></i>Archived</span></td>
+          <td data-th="Spill" class="num">4.8 km²</td><td data-th="Candidates" class="num">0</td>
+          <td data-th="Attribution"><span class="pill pill-warn"><i class="dot"></i>Inconclusive</span></td>
+          <td data-th="Updated">24 Aug 2026</td>
+          <td><svg class="ic row-arrow" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></td>
+        </tr>
+        <tr data-id="INV-2026-004" data-status="running" data-title="bay of bengal screening 004">
+          <td data-th="Investigation"><span class="primary">Bay of Bengal Screening 004</span><br><span class="meta-sm">INV-2026-004</span></td>
+          <td data-th="Status"><span class="pill pill-run"><i class="dot"></i>Running</span></td>
+          <td data-th="Spill">—</td><td data-th="Candidates">—</td><td data-th="Attribution">—</td>
+          <td data-th="Updated">25 Aug 2026</td>
+          <td><svg class="ic row-arrow" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div></main>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/router.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/map-mock.js"></script>
+<script src="js/interactions.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
