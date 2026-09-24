@@ -84,7 +84,7 @@ body.landing * {
 }
 
 .hero-track {
-    height: 220vh;
+    height: 100vh;
     position: relative;
     background: #080808;
 }
@@ -93,7 +93,7 @@ body.landing * {
     position: sticky;
     top: 0;
     height: 100vh;
-    overflow: hidden;
+    overflow: clip;
     background: #090909;
 }
 
@@ -141,7 +141,7 @@ body.landing * {
     flex-direction: column;
     justify-content: space-between;
     padding-top: 112px;
-    padding-bottom: 38px;
+    padding-bottom: 72px;
 }
 
 .hero-topline,
